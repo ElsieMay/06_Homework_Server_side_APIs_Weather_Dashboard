@@ -1,7 +1,7 @@
 function getInfo() {
 	// Collects data from input field //
-	const newName = document.getElementById("#cityInput");
-	const cityName = document.getElementById("#cityName");
+	const newName = document.getElementById("cityInput");
+	const cityName = document.getElementById("cityName");
 	// Displays data enterred to input //
 	cityName.innerHTML = "--" + newName.value + "--";
 	//Passing the API key & city name//
@@ -10,10 +10,10 @@ function getInfo() {
 		.then((Response) => Response.json())
 		.then((data) => {
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min" + Number(data.list[i].main.temp_min - 288.53).toFixed(1) + "°";
+				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min:" + Number(data.list[i].main.temp_min - 273.15).toFixed(1) + "°";
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max" + Number(data.list[i].main.temp_max - 288.53).toFixed(1) + "°";
+				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
 			}
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
@@ -26,11 +26,11 @@ function getInfo() {
 		alert("something went wrong");
 	}
 }
-//Displays user's location by default//
-function defaultPage() {
-	document.getElementById("cityInput").defaultValue = "Sydney";
-	getInfo();
-}
+// //Displays user's location by default//
+// function defaultPage() {
+// 	document.getElementById("cityInput").defaultValue = "Sydney";
+// 	getInfo();
+// }
 
 const daySelection = new Date();
 //Array of all days of the week//
