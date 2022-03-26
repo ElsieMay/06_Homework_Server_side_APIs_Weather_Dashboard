@@ -5,7 +5,7 @@ function getInfo() {
 	// Displays data enterred to input //
 	cityName.innerHTML = "--" + newName.value + "--";
 	//Passing the API key & city name//
-	fetch("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=3649b0b86df7a1e0a5f6def57b72b739")
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName.value + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
 		//Javascript promise that will return the data//
 		.then((Response) => Response.json())
 		.then((data) => {
