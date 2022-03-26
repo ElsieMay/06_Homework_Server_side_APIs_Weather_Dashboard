@@ -1,7 +1,7 @@
 * {
-	color: rgb(7, 1, 1);
-	background: rgb(7, 200, 243);
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: rgb(255, 255, 255);
+	background: rgb(25, 54, 133);
+	font-family: "Times New Roman", Times, serif;
 }
 
 #cityInput,
@@ -40,18 +40,21 @@ button {
 }
 
 .icons {
-	display: inline-bock;
 	float: left;
 	height: 200px;
 	width: 190px;
 	margin: 20px;
 	border: 5px solid rgb(48, 47, 47);
 	border-radius: 10px;
+	object-fit: contain;
 }
 
 .image {
 	height: 140px;
 	width: 100%;
+	display: flex;
+	justify-content: center;
+	object-fit: contain;
 }
 
 .imgClass {
@@ -61,7 +64,6 @@ button {
 
 .weather {
 	margin: 5px;
-	/*  background-color: rgb(106, 215, 255); */
 	border-radius: 5px;
 	text-align: center;
 	font-weight: bold;
