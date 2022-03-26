@@ -34,6 +34,7 @@ I followed these links for tutorials and additional information;
 https://www.youtube.com/watch?v=QEu8_5bYm-w
 https://openweathermap.org/api/geocoding-api
 https://openweathermap.org/api/one-call-api
+https://openweathermap.org/forecast5
 
 ## License
 

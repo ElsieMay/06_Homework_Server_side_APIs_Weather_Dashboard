@@ -1,11 +1,11 @@
 function getInfo() {
 	// Collects data from input field //
-	const newName = document.getElementById("cityInput");
-	const cityName = document.getElementById("cityName");
+	const newName = document.getElementById("#cityInput");
+	const cityName = document.getElementById("#cityName");
 	// Displays data enterred to input //
 	cityName.innerHTML = "--" + newName.value + "--";
 	//Passing the API key & city name//
-	fetch("http://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=3649b0b86df7a1e0a5f6def57b72b739")
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=3649b0b86df7a1e0a5f6def57b72b739")
 		//Javascript promise that will return the data//
 		.then((Response) => Response.json())
 		.then((data) => {
@@ -19,17 +19,31 @@ function getInfo() {
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
 			}
+			console.log(data);
 		});
-	// .catch(err => alert("something went wrong"));
+	try {
+	} catch (error) {
+		alert("something went wrong");
+	}
 }
+//Displays user's location by default//
+function defaultPage() {
+	document.getElementById("cityInput").defaultValue = "Sydney";
+	getInfo();
+}
+
 const daySelection = new Date();
 //Array of all days of the week//
 const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//Gets correct integer for index of days in array//
+//Finds correct integer for index of days in array//
 function dayCheck(day) {
 	if (day + daySelection.getDay() > 6) {
 		return day + daySelection.getDay() - 7;
 	} else {
 		return day + daySelection.getDay();
 	}
+}
+//Loops through list to find selected day in week//
+for (i = 0; i < 5; i++) {
+	document.getElementById("day" + (i + 1)).innerHTML = weekday[dayCheck(i)];
 }
