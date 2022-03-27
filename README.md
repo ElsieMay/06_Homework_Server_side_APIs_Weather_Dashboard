@@ -35,6 +35,8 @@ https://www.youtube.com/watch?v=QEu8_5bYm-w
 https://openweathermap.org/api/geocoding-api
 https://openweathermap.org/api/one-call-api
 https://openweathermap.org/forecast5
+https://openweathermap.org/weather-conditions
+https://www.youtube.com/watch?v=6trGQWzg2AI
 
 ## License
 
