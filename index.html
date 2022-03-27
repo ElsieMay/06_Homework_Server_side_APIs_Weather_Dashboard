@@ -8,14 +8,13 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<section>
+		<section class="header">
 			<h1 id="Para1">5 Day Weather Forecast</h1>
-			<p id="inputContainer">City:</p>
+			<p id="inputContainer"></p>
 			<input type="text" id="cityInput" />
 			<button type="button" onclick="getInfo()">Submit</button>
-			<h2 id="cityName">--Sydney--</h2>
 		</section>
-		<div class="displayContainer">
+		<section class="displayContainer">
 			<div class="displayInfo">
 				<div class="dateContainer">
 					<div class="timeDisplay" id="timeDis">1:30 <span id="am-pm">PM</span></div>
@@ -39,11 +38,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="locationContainer"></div>
-				<div class="timeZone" id="timeZone">Australian Eastern Daylight Time</div>
-				<div id="country" class="country">Australia</div>
+				<div class="locationContainer">
+					<div class="timeZone" id="timeZone">Australian Eastern Daylight Time</div>
+					<div id="cityName" class="cityName">----</div>
+				</div>
 			</div>
-		</div>
+		</section>
 		<div id="futureDays">
 			<div id="iconsContainer">
 				<div class="icons">
