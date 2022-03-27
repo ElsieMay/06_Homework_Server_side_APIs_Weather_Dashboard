@@ -29,10 +29,15 @@ function getInfo() {
 				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 3.25).toFixed(1);
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementsByClassName("timeZone" + (i + 1) + "timeZone").innerHTML = "" + Number(data.list[i].city.timezone - 0).toFixed(1);
+				document.getElementById("current" + (i + 1) + "Day").innerHTML = " " + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
 			}
+			// for (i = 0; i < 5; i++) {
+			// 	document.getElementsByClassName("timeZone" + (i + 1) + "timeZone").innerHTML = "" + Number(data.list[i].city.timezone - 0).toFixed(1);
+			// // }
 			for (i = 0; i < 5; i++) {
-				document.getElementsByClassName("date" + (i + 1) + "date").innerHTML = "Date:" + Number(data.list[i].dt_txt - 2022 - 03 - 15).toFixed(1);
+				let date = new Date(data.list[i].dt_txt);
+				console.log(date);
+				document.getElementsByClassName("Date" + (i + 1) + "Date").innerHTML = "Date: " + (1 + date.getMonth().toString().padStart(2, "0")) + "/" + date.getDate().toString().padStart(2, "0") + "/" + date.getFullYear();
 			}
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
