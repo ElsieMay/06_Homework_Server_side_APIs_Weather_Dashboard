@@ -15,22 +15,23 @@ function getInfo() {
 			for (i = 0; i < 5; i++) {
 				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
 			}
+			for (i = 0; i < 5; i++) {
+				document.getElementById("day" + (i + 1) + "Humidity").innerHTML = "Humidity:" + Number(data.list[i].main.humidity - 62).toFixed(1);
+			}
+			for (i = 0; i < 5; i++) {
+				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 3.25).toFixed(1);
+			}
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
 			}
-			console.log(data);
 		});
+
 	try {
 	} catch (error) {
 		alert("something went wrong");
 	}
 }
-// //Displays user's location by default//
-// function defaultPage() {
-// 	document.getElementById("cityInput").defaultValue = "Sydney";
-// 	getInfo();
-// }
 
 const daySelection = new Date();
 //Array of all days of the week//
