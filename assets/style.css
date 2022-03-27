@@ -69,7 +69,7 @@ button {
 }
 
 .locationContainer .cityName {
-	font-size: 20px;
+	font-size: 40px;
 	font-weight: 100;
 }
 
@@ -138,4 +138,8 @@ button {
 
 .Date {
 	font-size: 20px;
+}
+
+#currentUV {
+	color: black;
 }

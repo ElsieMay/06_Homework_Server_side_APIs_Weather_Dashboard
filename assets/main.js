@@ -1,10 +1,3 @@
-const timeDis = document.getElementById("timeDis");
-const dateDis = document.getElementById("dateDis");
-const weatherItems = document.getElementById("weatherItems");
-const timeZone = document.getElementById("timeZone");
-const futureDays = document.getElementById("futureDays");
-const temp = document.getElementById("temp");
-
 function getInfo() {
 	// Collects data from input field //
 	const newName = document.getElementById("cityInput");
@@ -17,20 +10,20 @@ function getInfo() {
 		.then((Response) => Response.json())
 		.then((data) => {
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min:" + Number(data.list[i].main.temp_min - 273.15).toFixed(1) + "°";
+				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min:" + Number(data.list[i].main.temp_min - 0).toFixed(1) + "°F";
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
+				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Humidity").innerHTML = "Humidity:" + Number(data.list[i].main.humidity - 62).toFixed(1);
+				document.getElementById("day" + (i + 1) + "Humidity").innerHTML = "Humidity:" + Number(data.list[i].main.humidity - 0).toFixed(1);
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 3.25).toFixed(1);
+				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 0).toFixed(1);
 			}
-			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
-			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed - 3.25).toFixed(1);
-			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity - 62).toFixed(1);
+			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
+			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed - 0).toFixed(1);
+			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity - 0).toFixed(1);
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -40,6 +33,13 @@ function getInfo() {
 				.then((Response) => Response.json())
 				.then((data) => {
 					document.getElementById("currentUV").innerHTML = " " + Number(data.current.uvi - 0).toFixed(1);
+					if (data.current.uvi > 3) {
+						document.getElementById("currentUV").style.backgroundColor = "orange";
+					} else if (data.current.uvi < 3) {
+						document.getElementById("currentUV").style.backgroundColor = "yellow";
+					} else if (data.current.uvi > 6) {
+						document.getElementById("currentUV").style.backgroundColor = "red";
+					}
 				});
 		});
 	try {
