@@ -5,11 +5,15 @@
 	margin: 0;
 	padding: 0%;
 	color: rgb(255, 255, 255);
-	background: rgb(25, 54, 133);
 }
 
 body {
 	font-family: "Montserrat", sans-serif;
+	background-image: url("./images/tom-barrett-hgGplX3PFBg-unsplash.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 #cityInput,
