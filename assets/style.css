@@ -54,11 +54,6 @@ button {
 	font-weight: bolder;
 }
 
-.dateContainer #am-pm {
-	font-size: 50px;
-	margin-left: 15px;
-}
-
 .dateContainer .dateDisplay {
 	font-size: 40px;
 	font-weight: bold;
@@ -86,6 +81,7 @@ button {
 	border-radius: 10px;
 	margin: 10px 0;
 	border: 1px solid;
+	width: 300px;
 }
 
 .displayInfo .features .weatherItems {
