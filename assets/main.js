@@ -1,3 +1,10 @@
+const timeDis = document.getElementById("timeDis");
+const dateDis = document.getElementById("dateDis");
+const weatherItems = document.getElementById("weatherItems");
+const timeZone = document.getElementById("timeZone");
+const futureDays = document.getElementById("futureDays");
+const temp = document.getElementById("temp");
+
 function getInfo() {
 	// Collects data from input field //
 	const newName = document.getElementById("cityInput");
@@ -21,6 +28,12 @@ function getInfo() {
 			for (i = 0; i < 5; i++) {
 				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 3.25).toFixed(1);
 			}
+			for (i = 0; i < 5; i++) {
+				document.getElementsByClassName("timeZone" + (i + 1) + "timeZone").innerHTML = "" + Number(data.list[i].city.timezone - 0).toFixed(1);
+			}
+			for (i = 0; i < 5; i++) {
+				document.getElementsByClassName("date" + (i + 1) + "date").innerHTML = "Date:" + Number(data.list[i].dt_txt - 2022 - 03 - 15).toFixed(1);
+			}
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -31,20 +44,4 @@ function getInfo() {
 	} catch (error) {
 		alert("something went wrong");
 	}
-}
-
-const daySelection = new Date();
-//Array of all days of the week//
-const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//Finds correct integer for index of days in array//
-function dayCheck(day) {
-	if (day + daySelection.getDay() > 6) {
-		return day + daySelection.getDay() - 7;
-	} else {
-		return day + daySelection.getDay();
-	}
-}
-//Loops through list to find selected day in week//
-for (i = 0; i < 5; i++) {
-	document.getElementById("day" + (i + 1)).innerHTML = weekday[dayCheck(i)];
 }
