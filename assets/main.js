@@ -1,26 +1,22 @@
-var history = JSON.parse(localStorage.getItem("history")) || [];
+var cityHistory = JSON.parse(localStorage.getItem("history")) || [];
+const cityName = document.getElementById("cityName");
+const newName = document.getElementById("cityInput");
+const todayDate = document.getElementById("timeDis");
+const futureDay = document.querySelectorAll("futureDate");
 
-for (var i = 0; i < history.length; i++) {
-	var element = document.createElement("li");
-	element.setAttribute("class", "list-group-item");
-	element.textContent = history[i];
+for (var i = 0; i < cityHistory.length; i++) {
+	var element = document.createElement("p");
+	element.textContent = cityHistory[i];
 	const city = document.getElementById("city");
 	cityName.append(city);
-	console.log(element);
 }
-
-//ul, doc.getelid, append child element
 
 function getInfo() {
 	// Collects data from input field //
-	const newName = document.getElementById("cityInput");
-	const cityName = document.getElementById("cityName");
 	// Displays data enterred to input //
-	var history = JSON.parse(localStorage.getItem("history")) || [];
-	history.push(newName.value);
-	localStorage.setItem("history", JSON.stringify(history));
-	// let local = localStorage.setItem(keyCount, response.name);
-	// keyCount = keyCount++;
+	cityHistory = JSON.parse(localStorage.getItem("history")) || [];
+	cityHistory.push(newName.value);
+	localStorage.setItem("history", JSON.stringify(cityHistory));
 	cityName.innerHTML = "--" + newName.value + "--";
 	//Passing the API key & city name//
 	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName.value + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
@@ -42,6 +38,20 @@ function getInfo() {
 			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
 			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed - 0).toFixed(1);
 			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity - 0).toFixed(1);
+			//Method to set current date
+			const currentDate = new Date(data.list[i].dt * 1000);
+			const currentDay = currentDate.getDate();
+			const currentMonth = currentDate.getMonth();
+			const currentYear = currentDate.getFullYear();
+			todayDate.innerHTML = " (" + currentMonth + "/" + currentDay + "/" + currentYear + ") ";
+			//Method to set future date
+			const futureDate = new Date(data.list[i].dt * 1000);
+			const futureD = futureDate.getDate();
+			const futureM = futureDate.getMonth();
+			const futureY = futureDate.getFullYear();
+			const futureDay = document.createElement("p");
+			futureDay.setAttribute("class", "mt-3 mb-0 futureDay");
+			futureDay.innerHTML = " (" + futureM + "/" + futureD + "/" + futureY + ") ";
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
