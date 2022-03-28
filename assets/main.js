@@ -2,7 +2,11 @@ var cityHistory = JSON.parse(localStorage.getItem("history")) || [];
 const cityName = document.getElementById("cityName");
 const newName = document.getElementById("cityInput");
 const todayDate = document.getElementById("timeDis");
-const futureDay = document.querySelectorAll("futureDate");
+var forecast0 = document.getElementById("forecast0");
+var forecast1 = document.getElementById("forecast1");
+var forecast2 = document.getElementById("forecast2");
+var forecast3 = document.getElementById("forecast3");
+var forecast4 = document.getElementById("forecast4");
 
 for (var i = 0; i < cityHistory.length; i++) {
 	var element = document.createElement("p");
@@ -44,14 +48,6 @@ function getInfo() {
 			const currentMonth = currentDate.getMonth();
 			const currentYear = currentDate.getFullYear();
 			todayDate.innerHTML = " (" + currentMonth + "/" + currentDay + "/" + currentYear + ") ";
-			//Method to set future date
-			const futureDate = new Date(data.list[i].dt * 1000);
-			const futureD = futureDate.getDate();
-			const futureM = futureDate.getMonth();
-			const futureY = futureDate.getFullYear();
-			const futureDay = document.createElement("p");
-			futureDay.setAttribute("class", "mt-3 mb-0 futureDay");
-			futureDay.innerHTML = " (" + futureM + "/" + futureD + "/" + futureY + ") ";
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -74,4 +70,10 @@ function getInfo() {
 	} catch (error) {
 		alert("something went wrong");
 	}
+	//Method to set future date
+	forecast0 = moment().add(1, "day").format("m[/]d[/]yyyy");
+	forecast1 = moment().add(2, "day").format("m[/]d[/]yyyy");
+	forecast2 = moment().add(3, "day").format("m[/]d[/]yyyy");
+	forecast3 = moment().add(4, "day").format("m[/]d[/]yyyy");
+	forecast4 = moment().add(5, "day").format("m[/]d[/]yyyy");
 }
