@@ -46,4 +46,10 @@ function getInfo() {
 	} catch (error) {
 		alert("something went wrong");
 	}
+	if (localStorage.getItem("data") === null) {
+		localStorage.setItem("data", "[]");
+	}
+	var old_data = JSON.parse(localStorage.getItem("data"));
+	old_data.push(cityName, newName);
+	localStorage.setItem("data", JSON.stringify(old_data));
 }
