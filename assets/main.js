@@ -4,7 +4,8 @@ for (var i = 0; i < history.length; i++) {
 	var element = document.createElement("li");
 	element.setAttribute("class", "list-group-item");
 	element.textContent = history[i];
-	// cityName.append("<li>" + city + "</li>");
+	const city = document.getElementById("city");
+	cityName.append(city);
 	console.log(element);
 }
 
