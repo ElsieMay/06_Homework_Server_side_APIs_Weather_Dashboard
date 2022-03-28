@@ -71,9 +71,9 @@ function getInfo() {
 		alert("something went wrong");
 	}
 	//Method to set future date
-	forecast0 = moment().add(1, "day").format("m[/]d[/]yyyy");
-	forecast1 = moment().add(2, "day").format("m[/]d[/]yyyy");
-	forecast2 = moment().add(3, "day").format("m[/]d[/]yyyy");
-	forecast3 = moment().add(4, "day").format("m[/]d[/]yyyy");
-	forecast4 = moment().add(5, "day").format("m[/]d[/]yyyy");
+	forecast0.textContent = moment().add(1, "days").format("L");
+	forecast1.textContent = moment().add(2, "days").format("L");
+	forecast2.textContent = moment().add(3, "days").format("L");
+	forecast3.textContent = moment().add(4, "days").format("L");
+	forecast4.textContent = moment().add(5, "days").format("L");
 }
