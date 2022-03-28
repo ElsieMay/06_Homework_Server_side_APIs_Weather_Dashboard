@@ -1,8 +1,25 @@
+var history = JSON.parse(localStorage.getItem("history")) || [];
+
+for (var i = 0; i < history.length; i++) {
+	var element = document.createElement("li");
+	element.setAttribute("class", "list-group-item");
+	element.textContent = history[i];
+	// cityName.append("<li>" + city + "</li>");
+	console.log(element);
+}
+
+//ul, doc.getelid, append child element
+
 function getInfo() {
 	// Collects data from input field //
 	const newName = document.getElementById("cityInput");
 	const cityName = document.getElementById("cityName");
 	// Displays data enterred to input //
+	var history = JSON.parse(localStorage.getItem("history")) || [];
+	history.push(newName.value);
+	localStorage.setItem("history", JSON.stringify(history));
+	// let local = localStorage.setItem(keyCount, response.name);
+	// keyCount = keyCount++;
 	cityName.innerHTML = "--" + newName.value + "--";
 	//Passing the API key & city name//
 	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName.value + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
@@ -46,10 +63,4 @@ function getInfo() {
 	} catch (error) {
 		alert("something went wrong");
 	}
-	if (localStorage.getItem("data") === null) {
-		localStorage.setItem("data", "[]");
-	}
-	var old_data = JSON.parse(localStorage.getItem("data"));
-	old_data.push(cityName, newName);
-	localStorage.setItem("data", JSON.stringify(old_data));
 }
