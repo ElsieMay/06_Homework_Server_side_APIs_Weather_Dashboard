@@ -20,6 +20,14 @@ function printHistory() {
 			getInfo(event.target.textContent);
 		});
 		cityName.append(element);
+		element.style.border = "solid rgb(31, 82, 82)";
+		element.addEventListener("mouseover", function (event) {
+			// highlight the mouseover target
+			event.target.style.color = "orange";
+			setTimeout(function () {
+				event.target.style.color = "";
+			}, 500);
+		});
 	}
 }
 
@@ -34,25 +42,25 @@ function getInfo(newName) {
 	localStorage.setItem("history", JSON.stringify(cityHistory));
 	cityName.innerHTML = "--" + newName + "--";
 	//Passing the API key & city name//
-	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName + "&appid=3649b0b86df7a1e0a5f6def57b72b739&units=metric")
 		//Javascript promise that will return the data//
 		.then((Response) => Response.json())
 		.then((data) => {
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min:" + Number(data.list[i].main.temp_min - 0).toFixed(1) + "°F";
+				document.getElementById("day" + (i + 1) + "Min").innerHTML = "Min:" + Number(data.list[i].main.temp_min).toFixed(1) + "°C";
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
+				document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max:" + Number(data.list[i].main.temp_max).toFixed(2) + "°C";
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Humidity").innerHTML = "Humidity:" + Number(data.list[i].main.humidity - 0).toFixed(1);
+				document.getElementById("day" + (i + 1) + "Humidity").innerHTML = "Humidity:" + Number(data.list[i].main.humidity).toFixed(1);
 			}
 			for (i = 0; i < 5; i++) {
-				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed - 0).toFixed(1);
+				document.getElementById("day" + (i + 1) + "Wind").innerHTML = "Wind:" + Number(data.list[i].wind.speed).toFixed(1);
 			}
-			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
-			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed - 0).toFixed(1);
-			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity - 0).toFixed(1);
+			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max).toFixed(2) + "°C";
+			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed).toFixed(1);
+			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity).toFixed(1);
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -65,7 +73,7 @@ function getInfo(newName) {
 					if (data.current.uvi > 3) {
 						document.getElementById("currentUV").style.backgroundColor = "orange";
 					} else if (data.current.uvi < 3) {
-						document.getElementById("currentUV").style.backgroundColor = "yellow";
+						document.getElementById("currentUV").style.backgroundColor = "green";
 					} else if (data.current.uvi > 6) {
 						document.getElementById("currentUV").style.backgroundColor = "red";
 					}
