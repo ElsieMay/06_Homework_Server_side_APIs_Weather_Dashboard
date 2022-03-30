@@ -16,6 +16,7 @@ for (var i = 0; i < cityHistory.length; i++) {
 		getInfo(event.target.textContent);
 	});
 	cityName.append(element);
+	cityHistory.push(newName);
 }
 
 function getInfo(newName) {
