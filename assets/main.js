@@ -7,13 +7,18 @@ var forecast1 = document.getElementById("forecast1");
 var forecast2 = document.getElementById("forecast2");
 var forecast3 = document.getElementById("forecast3");
 var forecast4 = document.getElementById("forecast4");
+const city = document.getElementById("city");
 
 for (var i = 0; i < cityHistory.length; i++) {
 	var element = document.createElement("p");
 	element.textContent = cityHistory[i];
-	const city = document.getElementById("city");
-	cityName.append(city);
+	cityName.append(element);
 }
+
+cityHistory.addEventListener("click", function (event) {
+	city;
+	var newElement = event.target;
+});
 
 function getInfo() {
 	// Collects data from input field //
