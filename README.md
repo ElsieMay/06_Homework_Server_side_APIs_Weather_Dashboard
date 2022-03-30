@@ -2,9 +2,9 @@
 
 ## Description
 
-The motivation for this project was to create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. The app runs in the browser and features dynamically updated HTML and CSS, powered by jQuery.
+The motivation for this project was to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS. The dashboard uses the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities.
 
-I learnt about moment.js, Jquery functions, event handlers and algorithms, CSS, HTML, local storage, and much more.
+I learnt about using API's to retrieve information, API keys, Javascript functions, event handlers and algorithms, CSS, HTML, local storage, and much more.
 
 ## Table of Contents
 
@@ -41,6 +41,7 @@ https://unsplash.com/photos/hgGplX3PFBg
 https://momentjs.com/docs/#/displaying/
 https://www.youtube.com/watch?v=01WtuEiF4G8
 https://www.youtube.com/watch?v=2hJ1rTANVnk
+https://stackoverflow.com/questions/60717695/how-to-store-some-data-on-a-click-event-in-js
 
 ## License
 

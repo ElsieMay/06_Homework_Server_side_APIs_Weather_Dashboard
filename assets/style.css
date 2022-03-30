@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/*These apply to the whole site*/
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -7,15 +8,16 @@
 	color: rgb(255, 255, 255);
 }
 
+/*These are the body properties*/
 body {
 	font-family: "Montserrat", sans-serif;
 	background-image: url("./images/tom-barrett-hgGplX3PFBg-unsplash.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
-	overflow: hidden;
 	height: 100vh;
+	overflow: scroll;
 }
 
+/*These are the header properties*/
 .header {
 	display: flex;
 	justify-content: flex-start;
@@ -29,11 +31,13 @@ body {
 	font-size: large;
 }
 
+/*These are the submit button properties*/
 button {
 	background: rgb(31, 82, 82);
 	font-size: large;
 }
 
+/*These are the display container properties*/
 .displayContainer {
 	padding: 20px 70px;
 	font-size: 25px;
@@ -45,6 +49,7 @@ button {
 	flex-wrap: wrap;
 }
 
+/*These apply to the date container*/
 .dateContainer {
 	font-weight: 100;
 }
@@ -59,6 +64,7 @@ button {
 	font-weight: bold;
 }
 
+/*These apply to the location container*/
 .locationContainer {
 	text-align: end;
 }
@@ -73,6 +79,7 @@ button {
 	font-weight: 100;
 }
 
+/*These apply to the forecasting area*/
 .displayInfo .features {
 	display: flex;
 	flex-direction: column;
@@ -97,6 +104,7 @@ button {
 	width: 100%;
 }
 
+/*These apply to the icons container*/
 #iconsContainer {
 	background: rgba(24, 24, 27, 0.5);
 	display: flex;
@@ -105,8 +113,10 @@ button {
 	border: 2px solid rgb(31, 82, 82);
 	border-radius: 10px;
 	position: absolute;
+	margin-bottom: 100px;
 }
 
+/*These apply to the icons*/
 .icons {
 	width: 190px;
 	margin: 20px;
@@ -123,6 +133,7 @@ button {
 	font-weight: bold;
 }
 
+/*These apply to the main background image*/
 .image {
 	height: 180px;
 	width: 100%;
@@ -136,10 +147,28 @@ button {
 	width: 100%;
 }
 
+/*These apply to the current date*/
 .Date {
 	font-size: 20px;
 }
 
+/*These apply to the UV font*/
 #currentUV {
 	color: black;
+}
+
+/*These are the media screens for smaller sizes*/
+@media screen and (max-width: 600px) {
+	#iconsContainer {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+}
+@media screen and (max-width: 600px) {
+	#iconsContainer {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
 }

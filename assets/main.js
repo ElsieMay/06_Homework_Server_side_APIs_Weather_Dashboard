@@ -1,3 +1,4 @@
+//Comprehensive list of variables//
 var cityHistory = JSON.parse(localStorage.getItem("history")) || [];
 const cityName = document.getElementById("cityName");
 const newName = document.getElementById("cityInput");
@@ -9,14 +10,17 @@ var forecast3 = document.getElementById("forecast3");
 var forecast4 = document.getElementById("forecast4");
 const city = document.getElementById("city");
 
-for (var i = 0; i < cityHistory.length; i++) {
-	var element = document.createElement("p");
-	element.textContent = cityHistory[i];
-	element.addEventListener("click", function (event) {
-		getInfo(event.target.textContent);
-	});
-	cityName.append(element);
-	cityHistory.push(newName);
+//For loop for search history//
+function printHistory() {
+	for (var i = 0; i < cityHistory.length; i++) {
+		var element = document.createElement("p");
+		element.textContent = cityHistory[i];
+		//event listener for cities in local storage on click//
+		element.addEventListener("click", function (event) {
+			getInfo(event.target.textContent);
+		});
+		cityName.append(element);
+	}
 }
 
 function getInfo(newName) {
@@ -53,7 +57,7 @@ function getInfo(newName) {
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
 			}
-
+			//API for current UVI rating//
 			fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
 				.then((Response) => Response.json())
 				.then((data) => {
@@ -67,6 +71,7 @@ function getInfo(newName) {
 					}
 				});
 		});
+	//Error response//
 	try {
 	} catch (error) {
 		alert("something went wrong");
@@ -80,4 +85,6 @@ function getInfo(newName) {
 	forecast2.textContent = moment().add(3, "days").format("L");
 	forecast3.textContent = moment().add(4, "days").format("L");
 	forecast4.textContent = moment().add(5, "days").format("L");
+	//Calls history//
+	printHistory();
 }

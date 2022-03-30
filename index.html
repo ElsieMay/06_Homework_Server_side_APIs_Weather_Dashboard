@@ -4,23 +4,27 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="assets/style.css" />
+		<link rel="stylesheet" href="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/style.css" />
 		<title>Document</title>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 	</head>
 	<body>
+		<!--This is the input section-->
 		<section class="header">
-			<h1 id="Para1">Enter your city</h1>
+			<h1 id="Para1">Search for a City</h1>
 			<p id="inputContainer"></p>
 			<input type="text" id="cityInput" />
+			<!--This is the submit button-->
 			<button type="searchButton" onclick="getInfo()">Submit</button>
 		</section>
+		<!--This is the current date section of the page-->
 		<section class="displayContainer">
-			<div class="displayInfo">
+			<article class="displayInfo">
 				<div class="dateContainer">
 					<div class="timeDisplay" id="timeDis">Date</div>
 					<div class="dateDisplay" id="dateDis"></div>
 					<div class="features" id="featuresWeather">
+						<!--These are the current weather features-->
 						<div class="weatherItems">
 							<div class="temp">Max Temp</div>
 							<div id="currentDay">Loading...</div>
@@ -39,18 +43,20 @@
 						</div>
 					</div>
 				</div>
+				<!--These are the listed cities shown in history-->
 				<div class="locationContainer">
 					<div id="cityName" class="cityName">----</div>
 					<ul id="city" onclick="cityButton()"></ul>
 				</div>
-			</div>
+			</article>
 		</section>
-		<div id="futureDays">
-			<div id="iconsContainer">
+		<!--This is the future forecasting-->
+		<article id="futureDays">
+			<section id="iconsContainer">
 				<div class="icons">
 					<p class="weather" id="day1"></p>
 					<p id="forecast0">Loading...</p>
-					<div class="image"><img src="assets/images/dots.png" class="imgClass" id="img1" alt="weather icon" /></div>
+					<div class="image"><img src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/images/dots.png" class="imgClass" id="img1" alt="weather icon" /></div>
 					<p class="minValues" id="day1Min">Loading...</p>
 					<p class="maxValues" id="day1Max">Loading...</p>
 					<p class="humidity" id="day1Humidity">Loading...</p>
@@ -59,7 +65,7 @@
 				<div class="icons">
 					<p class="weather" id="day2"></p>
 					<p id="forecast1">Loading...</p>
-					<div class="image"><img src="assets/images/dots.png" class="imgClass" id="img2" alt="weather icon" /></div>
+					<div class="image"><img src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/images/dots.png" class="imgClass" id="img2" alt="weather icon" /></div>
 					<p class="minValues" id="day2Min">Loading...</p>
 					<p class="maxValues" id="day2Max">Loading...</p>
 					<p class="humidity" id="day2Humidity">Loading...</p>
@@ -68,7 +74,7 @@
 				<div class="icons">
 					<p class="weather" id="day3"></p>
 					<p id="forecast2">Loading...</p>
-					<div class="image"><img src="assets/images/dots.png" class="imgClass" id="img3" alt="weather icon" /></div>
+					<div class="image"><img src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/images/dots.png" class="imgClass" id="img3" alt="weather icon" /></div>
 					<p class="minValues" id="day3Min">Loading...</p>
 					<p class="maxValues" id="day3Max">Loading...</p>
 					<p class="humidity" id="day3Humidity">Loading...</p>
@@ -77,7 +83,7 @@
 				<div class="icons">
 					<p class="weather" id="day4"></p>
 					<p id="forecast3">Loading...</p>
-					<div class="image"><img src="assets/images/dots.png" class="imgClass" id="img4" alt="weather icon" /></div>
+					<div class="image"><img src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/images/dots.png" class="imgClass" id="img4" alt="weather icon" /></div>
 					<p class="minValues" id="day4Min">Loading...</p>
 					<p class="maxValues" id="day4Max">Loading...</p>
 					<p class="humidity" id="day4Humidity">Loading...</p>
@@ -86,14 +92,16 @@
 				<div class="icons">
 					<p class="weather" id="day5"></p>
 					<p id="forecast4">Loading...</p>
-					<div class="image"><img src="assets/images/dots.png" class="imgClass" id="img5" alt="weather icon" /></div>
+					<div class="image"><img src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/images/dots.png" class="imgClass" id="img5" alt="weather icon" /></div>
 					<p class="minValues" id="day5Min">Loading...</p>
 					<p class="maxValues" id="day5Max">Loading...</p>
 					<p class="humidity" id="day5Humidity">Loading...</p>
 					<p class="windSpeed" id="day5Wind">Loading...</p>
 				</div>
-			</div>
-		</div>
-		<script src="assets/main.js"></script>
+			</section>
+		</article>
+		<p></p>
+		<!--Links to the Javascript file-->
+		<script src="/06_Homework_Server_side_APIs_Weather_Dashboard/assets/main.js"></script>
 	</body>
 </html>
