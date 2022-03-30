@@ -12,19 +12,24 @@ const city = document.getElementById("city");
 for (var i = 0; i < cityHistory.length; i++) {
 	var element = document.createElement("p");
 	element.textContent = cityHistory[i];
+	element.addEventListener("click", function (event) {
+		getInfo(event.target.textContent);
+	});
 	cityName.append(element);
-	console.log(cityHistory);
 }
 
 function getInfo(newName) {
 	// Collects data from input field //
 	// Displays data enterred to input //
+	if (!newName) {
+		newName = document.getElementById("cityInput").value;
+	}
 	cityHistory = JSON.parse(localStorage.getItem("history")) || [];
-	cityHistory.push(newName.value);
+	cityHistory.push(newName);
 	localStorage.setItem("history", JSON.stringify(cityHistory));
-	cityName.innerHTML = "--" + newName.value + "--";
+	cityName.innerHTML = "--" + newName + "--";
 	//Passing the API key & city name//
-	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName.value + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
+	fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newName + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
 		//Javascript promise that will return the data//
 		.then((Response) => Response.json())
 		.then((data) => {
@@ -43,12 +48,6 @@ function getInfo(newName) {
 			document.getElementById("currentDay").innerHTML = " " + Number(data.list[i].main.temp_max - 0).toFixed(2) + "°F";
 			document.getElementById("currentWind").innerHTML = " " + Number(data.list[i].wind.speed - 0).toFixed(1);
 			document.getElementById("currentHumidity").innerHTML = Number(data.list[i].main.humidity - 0).toFixed(1);
-			//Method to set current date
-			const currentDate = new Date(data.list[i].dt * 1000);
-			const currentDay = currentDate.getDate();
-			const currentMonth = currentDate.getMonth();
-			const currentYear = currentDate.getFullYear();
-			todayDate.innerHTML = " (" + currentMonth + "/" + currentDay + "/" + currentYear + ") ";
 			//Loops through list to find selected icon//
 			for (i = 0; i < 5; i++) {
 				document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
@@ -71,17 +70,13 @@ function getInfo(newName) {
 	} catch (error) {
 		alert("something went wrong");
 	}
+
+	// //Method to set current date
+	todayDate.textContent = moment().format("L");
 	//Method to set future date
 	forecast0.textContent = moment().add(1, "days").format("L");
 	forecast1.textContent = moment().add(2, "days").format("L");
 	forecast2.textContent = moment().add(3, "days").format("L");
 	forecast3.textContent = moment().add(4, "days").format("L");
 	forecast4.textContent = moment().add(5, "days").format("L");
-
-	cityButton.addEventListener("click", function (event) {
-		getInfo(document.getElementById("cityInput").value);
-	});
-	cityHistory.addEventListener("click", function (event) {
-		getInfo(event.target.textContent);
-	});
 }
