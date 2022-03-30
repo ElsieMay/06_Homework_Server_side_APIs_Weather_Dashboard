@@ -143,8 +143,3 @@ button {
 #currentUV {
 	color: black;
 }
-#city {
-	display: flex;
-	justify-content: center;
-	text-decoration: underline;
-}

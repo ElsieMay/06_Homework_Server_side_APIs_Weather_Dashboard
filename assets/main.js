@@ -13,14 +13,10 @@ for (var i = 0; i < cityHistory.length; i++) {
 	var element = document.createElement("p");
 	element.textContent = cityHistory[i];
 	cityName.append(element);
+	console.log(cityHistory);
 }
 
-cityHistory.addEventListener("click", function (event) {
-	city;
-	var newElement = event.target;
-});
-
-function getInfo() {
+function getInfo(newName) {
 	// Collects data from input field //
 	// Displays data enterred to input //
 	cityHistory = JSON.parse(localStorage.getItem("history")) || [];
@@ -81,4 +77,11 @@ function getInfo() {
 	forecast2.textContent = moment().add(3, "days").format("L");
 	forecast3.textContent = moment().add(4, "days").format("L");
 	forecast4.textContent = moment().add(5, "days").format("L");
+
+	cityButton.addEventListener("click", function (event) {
+		getInfo(document.getElementById("cityInput").value);
+	});
+	cityHistory.addEventListener("click", function (event) {
+		getInfo(event.target.textContent);
+	});
 }

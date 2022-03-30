@@ -13,7 +13,7 @@
 			<h1 id="Para1">Enter your city</h1>
 			<p id="inputContainer"></p>
 			<input type="text" id="cityInput" />
-			<button type="button" onclick="getInfo()">Submit</button>
+			<button type="searchButton" onclick="getInfo()">Submit</button>
 		</section>
 		<section class="displayContainer">
 			<div class="displayInfo">
@@ -41,7 +41,7 @@
 				</div>
 				<div class="locationContainer">
 					<div id="cityName" class="cityName">----</div>
-					<ul id="city"></ul>
+					<ul id="city" onclick="cityButton()"></ul>
 				</div>
 			</div>
 		</section>
