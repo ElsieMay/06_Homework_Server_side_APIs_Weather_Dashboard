@@ -69,7 +69,7 @@ function getInfo(newName) {
 			fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&appid=3649b0b86df7a1e0a5f6def57b72b739")
 				.then((Response) => Response.json())
 				.then((data) => {
-					document.getElementById("currentUV").innerHTML = " " + Number(data.current.uvi - 0).toFixed(1);
+					document.getElementById("currentUV").innerHTML = " " + Number(data.current.uvi).toFixed(1);
 					if (data.current.uvi > 3) {
 						document.getElementById("currentUV").style.backgroundColor = "orange";
 					} else if (data.current.uvi < 3) {

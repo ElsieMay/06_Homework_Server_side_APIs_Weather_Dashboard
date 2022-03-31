@@ -15,19 +15,19 @@ I learnt about using API's to retrieve information, API keys, Javascript functio
 
 ## Installation
 
-The project can be viewed via this link, https://elsiemay.github.io/05_Homework_Work_Day_Scheduler/. There is no installation required.
+The project can be viewed via this link, https://elsiemay.github.io/06_Homework_Server_side_APIs_Weather_Dashboard/. There is no installation required.
 
 ## Usage
 
-The deployed application can be viewed via this link, https://elsiemay.github.io/05_Homework_Work_Day_Scheduler/.
+The deployed application can be viewed via this link, https://elsiemay.github.io/06_Homework_Server_side_APIs_Weather_Dashboard/.
 
-The Github repository can be viewed via this link, https://github.com/ElsieMay/05_Homework_Work_Day_Scheduler.
+The Github repository can be viewed via this link, https://github.com/ElsieMay/06_Homework_Server_side_APIs_Weather_Dashboard.
 
-![Screenshots](https://github.com/ElsieMay/05_Homework_Work_Day_Scheduler/blob/main/Develop/images/Screen%20Shot%202022-03-23%20at%2010.43.18%20pm.png)
+![Screenshots](https://github.com/ElsieMay/06_Homework_Server_side_APIs_Weather_Dashboard/blob/main/assets/images/Screen%20Shot%202022-03-31%20at%2010.53.13%20pm.png)
 
 ## Credits
 
-I was aided by the BCS Learning assistant. They instructed me well.
+I was aided by the BCS Learning assistant. They advised me well.
 
 I followed these links for tutorials and additional information;
 
