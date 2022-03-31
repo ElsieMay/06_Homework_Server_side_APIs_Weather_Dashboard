@@ -23,7 +23,7 @@ The deployed application can be viewed via this link, https://elsiemay.github.io
 
 The Github repository can be viewed via this link, https://github.com/ElsieMay/06_Homework_Server_side_APIs_Weather_Dashboard.
 
-![Screenshots](https://github.com/ElsieMay/06_Homework_Server_side_APIs_Weather_Dashboard/blob/main/assets/images/Screen%20Shot%202022-03-31%20at%2010.53.13%20pm.png)
+![Screenshots](
 
 ## Credits
 
