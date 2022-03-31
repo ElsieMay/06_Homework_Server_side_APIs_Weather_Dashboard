@@ -38,7 +38,7 @@ function getInfo(newName) {
 		newName = document.getElementById("cityInput").value;
 	}
 	cityHistory = JSON.parse(localStorage.getItem("history")) || [];
-	if (!getInfo.includes(getInfo)) cityHistory.push(newName);
+	cityHistory.push(newName);
 	localStorage.setItem("history", JSON.stringify(cityHistory));
 	cityName.innerHTML = "--" + newName + "--";
 	//Passing the API key & city name//
