@@ -35,6 +35,8 @@ body {
 button {
 	background: rgb(31, 82, 82);
 	font-size: large;
+	height: 45px;
+	width: 90px;
 }
 
 /*These are the display container properties*/
@@ -134,13 +136,6 @@ button {
 }
 
 /*These apply to the main background image*/
-.image {
-	height: 180px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	object-fit: scale-down;
-}
 
 .imgClass {
 	height: 140px;
@@ -163,12 +158,20 @@ button {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		border: none;
+		background: none;
 	}
-}
-@media screen and (max-width: 600px) {
-	#iconsContainer {
+	#icons {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+	}
+	#Para1 {
+		margin: 20px;
+	}
+	.header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 }
